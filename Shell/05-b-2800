@@ -1,0 +1,13 @@
+#! /bin/bash
+
+if [[ ! $# -eq 1 ]]
+then 
+echo "error"
+exit 1
+fi
+
+if [[ $1 =~ "^[a-z0-9]*$" ]]
+then 
+echo "must contain only letters and digits"
+exit 2
+fi

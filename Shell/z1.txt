@@ -1,0 +1,5 @@
+FOO=72
+BAR=43
+BAZ=
+test=a b c d
+test1=e f 

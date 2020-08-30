@@ -1,0 +1,9 @@
+#! /bin/bash
+
+if [[ ! $# -eq 1 ]] 
+then 
+echo "invalid input"
+exit 1
+fi
+
+echo $(who | grep "${1}" | wc -l)  
