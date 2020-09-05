@@ -63,12 +63,12 @@ if(head.data_ver == 0x00)
 	
 	while((rd=read(fd1,&v1,sizeof(v1))) == sizeof(v1))
 	{
-		off_t ls = lseek(fd3,v1.offset,SEEK_SET);
+		off_t ls = lseek(fd3,v1.offset*sizeof(uint16_t),SEEK_SET);
 		ssize_t rd_2;
 		char b;
 		if((rd_2 = read(fd3, &b, 1)) == 1){
 			if(v1.old == b){
-			ls = lseek(fd3, v1.offset, SEEK_SET);
+			ls = lseek(fd3, v1.offset*sizeof(uint16_t), SEEK_SET);
 			write(fd3,v1.new,sizeof(v1.new));
 			}
 		}
@@ -80,12 +80,12 @@ if(head.data_ver == 0x00)
 
         while((rd=read(fd1,&v2,sizeof(v2))) == sizeof(v2))
         {
-                off_t ls = lseek(fd3,v2.offset,SEEK_SET);
+                off_t ls = lseek(fd3,v2.offset*sizeof(uint32_t),SEEK_SET);
                 ssize_t rd_2;
                 char b;
                 if((rd_2 = read(fd3, &b, 1)) == 1){
                         if(v2.old == b){
-                        ls = lseek(fd3, v2.offset, SEEK_SET);
+                        ls = lseek(fd3, v2.offset*sizeof(uint32_t), SEEK_SET);
                         write(fd3,v2.new,sizeof(v2.new));
                         }
                 }
